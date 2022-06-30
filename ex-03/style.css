@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;900&display=swap');
+
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Lato', sans-serif;
+}
+
+/* Cores dos elementos */
+:root {
+    --nao_metais_diatomicos: rgb(236, 166, 105);
+    --nao_metais_poliatomicos: #1C9480;
+    --gases_nobres: rgb(255, 170, 239);
+    --metais_alcalinos: rgb(255, 74, 74);
+    --metais_alcalinoterrosos: rgb(157, 126, 52);
+    --semimetais: rgba(239, 233, 53, 0.786);
+    --metais_pos_transicao: rgb(191, 100, 255);
+    --metais_de_transicao: rgba(118, 209, 130, 0.881);
+    --lantanideos: rgb(33, 126, 255);
+    --actinideos: rgb(115, 187, 250);
+    --prop_desconhecidas: rgb(154, 153, 150);
+    scroll-behavior: smooth;
+}
+
+.nao_metais_diatomicos {
+    color: var(--nao_metais_diatomicos);
+}
+
+.gases_nobres {
+    color: var(--gases_nobres);
+}
+
+.metais_alcalinoterrosos {
+    color: var(--metais_alcalinoterrosos);
+}
+
+.metais_alcalinos {
+    color: var(--metais_alcalinos);
+}
+
+.semimetais {
+    color: var(--semimetais);
+}
+
+.metais_pos_transicao {
+    color: var(--metais_pos_transicao);
+}
+
+.metais_de_transicao {
+    color: var(--metais_de_transicao);
+}
+
+.nao_metais_poliatomicos {
+    color: var(--nao_metais_poliatomicos);
+}
+
+.lantanideos {
+    color: var(--lantanideos);
+}
+
+.actinideos {
+    color: var(--actinideos);
+}
+
+.prop_desconhecidas {
+    color: var(--prop_desconhecidas);
+}
+
+/* Formatação das fontes */
+table caption {
+    font-size: 5em;
+    font-weight: 100;
+    line-height: normal;
+    margin-top: 20px auto;
+}
+
+.numero_atomico {
+    font-weight: 100px;
+    font-size: 0.6em;
+    text-align: left;
+    margin-left: 5px;
+}
+
+.simbolo_elemento {
+    font-weight: 900px;
+    font-size: 2em;
+}
+
+.nome_elemento {
+    font-weight: 100px;
+    font-size: 0.7em;
+}
+
+.massa_atomica {
+    font-weight: 100px;
+    font-size: 0.6em;
+}
+
+.legenda p {
+    font-weight: 300;
+    font-size: 2em;
+}
+
+/* Posicionamento e formatação da tabela */
+
+table {
+    position: relative;
+    margin: 5px auto;
+    border-collapse: separate;
+    border-spacing: 4px;
+    line-height: 2px;
+}
+
+td {
+    height: 80px;
+    width: 80px;
+    text-align: center;
+    padding: 3px;
+    border: 2px solid;
+}
+
+.grupo,
+.periodo,
+.none {
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+/* Efeito de foco - Hover */
+tbody td:hover:not(.none, .grupo, .periodo) {
+    transition: .2s;
+    transform: scale(2);
+    cursor: pointer;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.852);
+}
+
+ul li:hover {
+    transition: .2s;
+    transform: scale(2);
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.852);
+}
+
+/* Legenda da tabela */
+.legenda {
+    width: 60%;
+    font-size: 1em;
+    display: flex;
+    align-items: inline-block;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 30px auto 30px auto;
+}
+
+ul li {
+    list-style-type: none;
+    border: none;
+    line-height: 30px;
+}
+/* Box da legenda */
+li:before {
+    content: ' ';
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border: .125em solid;
+    border-radius: .125rem;
+    margin-right: .5em;
+    position: relative;
+    top: .25em;
+}
