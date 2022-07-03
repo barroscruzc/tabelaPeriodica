@@ -77,6 +77,7 @@ table caption {
     font-weight: 100;
     line-height: normal;
     margin: 30px auto;
+    color: white;
 }
 
 .numero_atomico {
@@ -133,7 +134,7 @@ td {
 }
 
 /* Efeito de foco - Hover */
-tbody td:hover:not(.none, .grupo, .periodo) {
+tbody td:hover:not(.none, .grupo, .periodo, #tb_info td) {
     transition: .2s;
     transform: scale(2);
     cursor: pointer;
@@ -177,51 +178,77 @@ li:before {
     top: .25em;
 }
 
-/* Cores 
-.bg_nao_metais_diatomicos {
-    background-color: var(--nao_metais_diatomicos) !important;
-    font-weight: 400px;
+/* Tabela de informações sobre os elementos */
+
+#tb_info .header, .footer {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    height: 60px;
+    font-size: small;
 }
 
-.bg_gases_nobres {
-    background-color: var(--gases_nobres) !important;
-   
+#tb_info tbody {
+    font-size: small;
 }
 
-.bg_metais_alcalinoterrosos {
-    background-color: var(--metais_alcalinoterrosos) !important;
+.footer {
+    bottom:0;
+    position: sticky;
 }
 
-.bg_metais_alcalinos {
-    background-color: var(--metais_alcalinos) !important;
-    color: white;
+#tb_info {
+    border-collapse: collapse;
+    line-height: 10px;
+    padding: 15px 10px;
 }
 
-.bg_semimetais {
-    background-color: var(--semimetais) !important;
+#tb_info tr:hover:not(.header, .footer) {
+    transition: .2s;
+    transform: scale(1.1);
+    z-index: 2;
+    color: black;
 }
 
-.bg_metais_pos_transicao {
-    background-color: var(--metais_pos_transicao) !important;
+#tb_info .actinideos:hover {
+    background-color: var(--actinideos);
 }
 
-.bg_metais_de_transicao {
-    background-color: var(--metais_de_transicao) !important;
+#tb_info .gases_nobres:hover {
+    background-color: var(--gases_nobres);
 }
 
-.bg_nao_metais_poliatomicos {
-    background-color: var(--nao_metais_poliatomicos) !important;
+#tb_info .lantanideos:hover {
+    background-color: var(--lantanideos);
 }
 
-.bg_lantanideos {
-    background-color: var(--lantanideos) !important;
+#tb_info .nao_metais_diatomicos:hover {
+    background-color: var(--nao_metais_diatomicos);
 }
 
-.bg_actinideos {
-    background-color: var(--actinideos) !important;
+#tb_info .nao_metais_poliatomicos:hover {
+    background-color: var(--nao_metais_poliatomicos);
 }
 
-.bg_prop_desconhecidas {
-    background-color: var(--prop_desconhecidas) !important;
+#tb_info .metais_alcalinos:hover {
+    background-color: var(--metais_alcalinos);
 }
-*/
+
+#tb_info .metais_alcalinoterrosos:hover {
+    background-color: var(--metais_alcalinoterrosos);
+}
+
+#tb_info .semimetais:hover {
+    background-color: var(--semimetais);
+}
+
+#tb_info .metais_de_transicao:hover {
+    background-color: var(--metais_de_transicao);
+}
+
+#tb_info .metais_pos_transicao:hover {
+    background-color: var(--metais_pos_transicao);
+}
+
+#tb_info .prop_desconhecidas:hover {
+    background-color: var(--prop_desconhecidas);
+}
