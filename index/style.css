@@ -6,9 +6,16 @@ a {
 }
 
 body {
-    background-color: black;
     color: white;
     font-family: 'Lato', sans-serif;
+    background-image: url(pexels-frank-cone-3607542.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+:target {
+    scroll-margin-top: 85px;
 }
 
 /* Cores dos elementos */
@@ -71,6 +78,16 @@ body {
     color: var(--prop_desconhecidas);
 }
 
+/* Efeito de foco - Hover */
+tbody td:hover:not(.none, #tb_info td) {
+    transition: .1s;
+    cursor: pointer;
+    z-index: 2;
+    border-radius: 10px;
+    border: 1.2px solid;
+    color: rgb(0, 0, 0) !important;
+}
+
 /* Formatação das fontes */
 table caption {
     font-size: 5em;
@@ -102,7 +119,7 @@ table caption {
     font-size: 0.5em;
 }
 
-.legenda p {
+#legenda p {
     font-weight: 300;
     font-size: 2em;
 }
@@ -113,7 +130,7 @@ table {
     position: relative;
     margin: 5px auto;
     border-collapse: separate;
-    border-spacing: 4px;
+    border-spacing: 5px;
     line-height: 2px;
 }
 
@@ -125,48 +142,34 @@ td {
     border: 1px solid;
 }
 
-.grupo,
-.periodo,
 .none {
     padding: 0;
     margin: 0;
     border: none;
 }
 
-/* Efeito de foco - Hover */
-tbody td:hover:not(.none, .grupo, .periodo, #tb_info td) {
-    transition: .2s;
-    transform: scale(2);
-    cursor: pointer;
-    z-index: 2;
-    background-color: rgba(0, 0, 0, 0.852);
-}
-
-ul li:hover {
-    transition: .2s;
-    transform: scale(2);
-    z-index: 2;
-    background-color: rgba(0, 0, 0, 0.852);
+.blur {
+    backdrop-filter: blur(10px);
 }
 
 /* Legenda da tabela */
-.legenda {
+#legenda {
     width: 70vw;
     font-size: 1em;
     display: flex;
     align-items: inline-block;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin: 30px auto 30px auto;
+    margin: 30px auto 100px auto;
 }
 
-ul li {
+#legenda ul li {
     list-style-type: none;
     border: none;
     line-height: 30px;
 }
 /* Box das legendas */
-li:before {
+#legenda li:before {
     content: ' ';
     display: inline-block;
     width: 1em;
@@ -181,74 +184,126 @@ li:before {
 /* Tabela de informações sobre os elementos */
 
 #tb_info .header, .footer {
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
+    background-color: #000000e2;
+    color: rgb(255, 255, 255);
     height: 60px;
     font-size: small;
-}
-
-#tb_info tbody {
-    font-size: small;
-}
-
-.footer {
-    bottom:0;
     position: sticky;
 }
 
+#tb_info .footer {
+    bottom:0;
+}
+
+#tb_info .header {
+    top: 0;
+}
 #tb_info {
     border-collapse: collapse;
-    line-height: 10px;
+    line-height: 60px;
     padding: 15px 10px;
+    width: 80vw;
+    min-width: 1000px;
+    border-spacing: 0;
+    backdrop-filter: blur(10px);
 }
 
+#tb_info td {
+    border-left: 0;
+    border-right: 0;
+}
+
+/* Efeito de foco - Hover */
 #tb_info tr:hover:not(.header, .footer) {
     transition: .2s;
-    transform: scale(1.1);
     z-index: 2;
-    color: black;
+    border: none;
+    font-weight:bolder;
+    height: 100px;
 }
 
-#tb_info .actinideos:hover {
-    background-color: var(--actinideos);
+tr span {
+    display: none; /* Aqui você define que todo SPAN que estiver dentro de um A estará invisível */
 }
 
-#tb_info .gases_nobres:hover {
-    background-color: var(--gases_nobres);
+tr:hover span {
+    display: inline; /* Tranforma o SPAN em um elemento do tipo bloco */
+    position: absolute; /* Para você poder posicionar a vontade, sem quebrar o layour em volta */
+    left:-105px;
+    top: auto;
+    z-index: 2;
 }
 
-#tb_info .lantanideos:hover {
-    background-color: var(--lantanideos);
+tr span img {
+    width: 100px;
 }
 
-#tb_info .nao_metais_diatomicos:hover {
-    background-color: var(--nao_metais_diatomicos);
+.actinideos:hover:not(#legenda ul li) {
+    background-color: var(--actinideos) !important;
+    color: black !important;
 }
 
-#tb_info .nao_metais_poliatomicos:hover {
-    background-color: var(--nao_metais_poliatomicos);
+.gases_nobres:hover:not(#legenda ul li) {
+    background-color: var(--gases_nobres) !important;
+    color: black !important;
 }
 
-#tb_info .metais_alcalinos:hover {
-    background-color: var(--metais_alcalinos);
+.lantanideos:hover:not(#legenda ul li) {
+    background-color: var(--lantanideos) !important;
+    color: black !important;
 }
 
-#tb_info .metais_alcalinoterrosos:hover {
-    background-color: var(--metais_alcalinoterrosos);
+.nao_metais_diatomicos:hover:not(#legenda ul li) {
+    background-color: var(--nao_metais_diatomicos) !important;
+    color: black !important;
 }
 
-#tb_info .semimetais:hover {
-    background-color: var(--semimetais);
+.nao_metais_poliatomicos:hover:not(#legenda ul li) {
+    background-color: var(--nao_metais_poliatomicos) !important;
+    color: black !important;
 }
 
-#tb_info .metais_de_transicao:hover {
-    background-color: var(--metais_de_transicao);
+.metais_alcalinos:hover:not(#legenda ul li) {
+    background-color: var(--metais_alcalinos) !important;
+    color: black !important;
 }
 
-#tb_info .metais_pos_transicao:hover {
-    background-color: var(--metais_pos_transicao);
+.metais_alcalinoterrosos:hover:not(#legenda ul li) {
+    background-color: var(--metais_alcalinoterrosos) !important;
+    color: black !important;
 }
 
-#tb_info .prop_desconhecidas:hover {
-    background-color: var(--prop_desconhecidas);
+.semimetais:hover:not(#legenda ul li) {
+    background-color: var(--semimetais) !important;
+    color: black !important;
+}
+
+.metais_de_transicao:hover:not(#legenda ul li) {
+    background-color: var(--metais_de_transicao) !important;
+    color: black !important;
+}
+
+.metais_pos_transicao:hover:not(#legenda ul li) {
+    background-color: var(--metais_pos_transicao) !important;
+    color: black !important;
+}
+
+.prop_desconhecidas:hover:not(#legenda ul li) {
+    background-color: var(--prop_desconhecidas)  !important;
+    color: black !important;
+}
+
+/* Footer */
+
+#footer {
+    text-align: center;
+    line-height: 150px;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.464);
+    color: white !important;
+    height: 150px;
+    width: 100%;
+    font-size: large;
+    font-weight: 400;
 }
