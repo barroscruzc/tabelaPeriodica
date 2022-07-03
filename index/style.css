@@ -93,7 +93,7 @@ table caption {
     font-size: 5em;
     font-weight: 100;
     line-height: normal;
-    margin: 30px auto;
+    margin: 20px auto;
     color: white;
 }
 
@@ -229,7 +229,7 @@ tr span {
 tr:hover span {
     display: inline; /* Tranforma o SPAN em um elemento do tipo bloco */
     position: absolute; /* Para você poder posicionar a vontade, sem quebrar o layour em volta */
-    left:-105px;
+    right: -105px;
     top: auto;
     z-index: 2;
 }
@@ -305,4 +305,24 @@ tr span img {
     width: 100%;
     font-size: large;
     font-weight: 400;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 5px;
+    left: 5px;
+    width: 80px;
+    height: 60px;
+    background-color:rgba(0, 0, 0, 0.89);
+    text-decoration: none;
+    border-radius:5px;
+    color: white;
+}
+
+.btn:hover {
+    margin-left:-8px;
+    font-weight: bold;
 }
