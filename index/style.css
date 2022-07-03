@@ -168,6 +168,7 @@ td {
     border: none;
     line-height: 30px;
 }
+
 /* Box das legendas */
 #legenda li:before {
     content: ' ';
@@ -183,7 +184,8 @@ td {
 
 /* Tabela de informações sobre os elementos */
 
-#tb_info .header, .footer {
+#tb_info .header,
+.footer {
     background-color: #000000e2;
     color: rgb(255, 255, 255);
     height: 60px;
@@ -192,12 +194,13 @@ td {
 }
 
 #tb_info .footer {
-    bottom:0;
+    bottom: 0;
 }
 
 #tb_info .header {
     top: 0;
 }
+
 #tb_info {
     border-collapse: collapse;
     line-height: 60px;
@@ -218,24 +221,30 @@ td {
     transition: .2s;
     z-index: 2;
     border: none;
-    font-weight:bolder;
+    font-weight: bolder;
     height: 100px;
+    line-height: 100px;
 }
 
 tr span {
-    display: none; /* Aqui você define que todo SPAN que estiver dentro de um A estará invisível */
+    display: none;
+    /* Aqui você define que todo SPAN que estiver dentro de um A estará invisível */
 }
 
 tr:hover span {
-    display: inline; /* Tranforma o SPAN em um elemento do tipo bloco */
-    position: absolute; /* Para você poder posicionar a vontade, sem quebrar o layour em volta */
-    right: -105px;
+    display: inline;
+    /* Tranforma o SPAN em um elemento do tipo bloco */
+    position: absolute;
+    /* Para você poder posicionar a vontade, sem quebrar o layour em volta */
+    right: -120px;
     top: auto;
     z-index: 2;
 }
 
 tr span img {
-    width: 100px;
+    width: 110px;
+    border-radius: 5px;
+    border: 1px white solid;
 }
 
 .actinideos:hover:not(#legenda ul li) {
@@ -289,7 +298,7 @@ tr span img {
 }
 
 .prop_desconhecidas:hover:not(#legenda ul li) {
-    background-color: var(--prop_desconhecidas)  !important;
+    background-color: var(--prop_desconhecidas) !important;
     color: black !important;
 }
 
@@ -307,6 +316,8 @@ tr span img {
     font-weight: 400;
 }
 
+/* Botões */
+
 .btn {
     display: flex;
     justify-content: center;
@@ -316,13 +327,34 @@ tr span img {
     left: 5px;
     width: 80px;
     height: 60px;
-    background-color:rgba(0, 0, 0, 0.89);
+    background-color: rgba(0, 0, 0, 0.89);
     text-decoration: none;
-    border-radius:5px;
+    border-radius: 5px;
     color: white;
 }
 
 .btn:hover {
-    margin-left:-8px;
+    margin-left: -8px;
     font-weight: bold;
+}
+
+/* Barra de rolagem */
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: white rgb(27, 27, 27);
+}
+
+*::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background: rgb(27, 27, 27);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 5px;
+    border: 2px solid rgb(27, 27, 27);
 }
