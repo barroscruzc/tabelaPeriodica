@@ -236,13 +236,13 @@ tr:hover span {
     /* Tranforma o SPAN em um elemento do tipo bloco */
     position: absolute;
     /* Para você poder posicionar a vontade, sem quebrar o layour em volta */
-    right: -120px;
+    right: -125px;
     top: auto;
     z-index: 2;
 }
 
 tr span img {
-    width: 110px;
+    width: 120px;
     border-radius: 5px;
     border: 1px white solid;
 }
