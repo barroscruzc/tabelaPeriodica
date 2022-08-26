@@ -349,8 +349,8 @@ i {
     justify-content: center;
     align-items: center;
     margin: 5px;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     background-color: rgba(0, 0, 0, 0.733);
     text-decoration: none;
     border-radius: 30px;
@@ -361,9 +361,9 @@ i {
 .btn:hover {
     margin-left: 8px;
     font-weight: bold;
-    background-color: var(--gases_nobres);
-    color: black;
-    border-radius: 80px;
+    background-color: var(--lantanideos);
+    border-color: white;
+    border-radius: 60px;
     transition: .5s;
 }
 
