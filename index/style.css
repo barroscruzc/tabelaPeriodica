@@ -21,22 +21,21 @@ body {
 
 /* Cores dos elementos */
 :root {
-    --nao_metais_diatomicos: rgb(236, 166, 105);
-    --nao_metais_poliatomicos: #1C9480;
+    --nao_metais: #1C9480;
+    --halogenios: rgb(236, 166, 105);
     --gases_nobres: rgb(255, 170, 239);
     --metais_alcalinos: rgb(255, 74, 74);
     --metais_alcalinoterrosos: rgb(157, 126, 52);
     --semimetais: rgba(239, 233, 53, 0.786);
-    --metais_pos_transicao: rgb(191, 100, 255);
+    --metais_representativos: rgb(191, 100, 255);
     --metais_de_transicao: rgba(118, 209, 130, 0.881);
     --lantanideos: rgb(33, 126, 255);
     --actinideos: rgb(115, 187, 250);
-    --prop_desconhecidas: rgb(154, 153, 150);
     scroll-behavior: smooth;
 }
 
-.nao_metais_diatomicos {
-    color: var(--nao_metais_diatomicos);
+.nao_metais {
+    color: var(--nao_metais);
 }
 
 .gases_nobres {
@@ -55,16 +54,16 @@ body {
     color: var(--semimetais);
 }
 
-.metais_pos_transicao {
-    color: var(--metais_pos_transicao);
+.metais_representativos {
+    color: var(--metais_representativos);
 }
 
 .metais_de_transicao {
     color: var(--metais_de_transicao);
 }
 
-.nao_metais_poliatomicos {
-    color: var(--nao_metais_poliatomicos);
+.halogenios {
+    color: var(--halogenios);
 }
 
 .lantanideos {
@@ -73,10 +72,6 @@ body {
 
 .actinideos {
     color: var(--actinideos);
-}
-
-.prop_desconhecidas {
-    color: var(--prop_desconhecidas);
 }
 
 /* Efeito de foco - Hover */
@@ -120,14 +115,18 @@ table caption {
 #legenda p {
     font-weight: 400;
     font-size: 2em;
+    line-height: 100px;
 }
 
 #legenda ul li{
  font-size: 1.02em;
+ font-weight: 900;
 }
 
 #legenda {
     border-radius: 30px;
+    padding: 40px;
+    text-align: left;
 }
 
 h2 {
@@ -268,13 +267,13 @@ tr span img {
     color: black !important;
 }
 
-.nao_metais_diatomicos:hover:not(#legenda ul li) {
-    background-color: var(--nao_metais_diatomicos) !important;
+.nao_metais:hover:not(#legenda ul li) {
+    background-color: var(--nao_metais) !important;
     color: black !important;
 }
 
-.nao_metais_poliatomicos:hover:not(#legenda ul li) {
-    background-color: var(--nao_metais_poliatomicos) !important;
+.halogenios:hover:not(#legenda ul li) {
+    background-color: var(--halogenios) !important;
     color: black !important;
 }
 
@@ -298,13 +297,8 @@ tr span img {
     color: black !important;
 }
 
-.metais_pos_transicao:hover:not(#legenda ul li) {
-    background-color: var(--metais_pos_transicao) !important;
-    color: black !important;
-}
-
-.prop_desconhecidas:hover:not(#legenda ul li) {
-    background-color: var(--prop_desconhecidas) !important;
+.metais_representativos:hover:not(#legenda ul li) {
+    background-color: var(--metais_representativos) !important;
     color: black !important;
 }
 
