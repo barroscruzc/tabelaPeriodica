@@ -75,7 +75,7 @@ const Tabela = () => {
         return elemento ? (
             ElementoTableData(elemento)
         ) : (
-            <td className="vazio blur"></td>
+            <td className="none"></td>
         );
 
     }

@@ -148,6 +148,7 @@ td {
     min-width: 60px;
     text-align: center;
     border: 1px solid;
+    padding: 0;
 }
 
 .none {
