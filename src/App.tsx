@@ -9,7 +9,6 @@ export default () => {
             <Menu />
             <a id="inicio" />
             <TabelaPeriódica />
-            <a id="info" />
             <TabelaInfo />
             <a id="fim" />
         </>
