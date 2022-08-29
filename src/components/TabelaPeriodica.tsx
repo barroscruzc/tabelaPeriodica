@@ -91,7 +91,7 @@ const Tabela = () => {
                 <caption>TABELA PERIÓDICA</caption>
                 <thead>
                     <tr>
-                        <td className="none" colspan="17"></td>
+                        <td className="none"></td>
                     </tr>
                 </thead>
                 <tbody>
@@ -110,7 +110,7 @@ const Tabela = () => {
 
                     }
                     <tr>
-                        <td className="none" colspan="17"></td>
+                        <td className="none"></td>
                     </tr>
                     <tr>
                         {LantanídeosEActinídeos["Lantanídeos"].map((elemento) => ElementoTableData(elemento))}
