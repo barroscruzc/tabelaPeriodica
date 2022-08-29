@@ -5,7 +5,6 @@ const TabelaInfo = () => {
 
     return (
         <>
-            <a id="info"></a>
             <table id="tb_info" className="blur">
                 <thead >
                     <tr className="header">
@@ -30,9 +29,17 @@ const TabelaInfo = () => {
                             <td>{elemento.Nome}</td>
                             <td>
                                 {elemento.Numero}
-                                <span>
-                                    <img src={`images/elements/${elemento.Numero}-wiki.jpg`} alt={elemento.Nome} />;
-                                </span>
+                                {
+                                    <span>
+                                        <img
+                                            src={`images/elements/${elemento.Numero}-wiki.jpg`}
+                                            alt={elemento.Nome}
+                                            onError={(e) => {
+                                                (e.target as HTMLImageElement).className = `none`;
+                                            }}
+                                        />;
+                                    </span>
+                                }
                             </td>
                             <td>{elemento.Simbolo}</td>
                             <td>{elemento.MassaAtomica}</td>
