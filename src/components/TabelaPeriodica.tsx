@@ -31,11 +31,11 @@ const Tabela = () => {
     const largura = 18;
     const altura = 7;
 
-    const ElementoTableData = (elemento: Elemento): React.ReactNode => {
+    const ElementoTableData = (elemento: Elemento, key: number): React.ReactNode => {
         return (
             <td
                 className={[elemento.Classe, "blur"].join(" ")}
-            >
+                key={key+" "+elemento.Numero}>
                 <a className={elemento.Classe} href={`#${elemento.Numero}`}>
                     <p className="numero_atomico"> {elemento.Numero} </p>
                     <p className="simbolo_elemento"> {elemento.Simbolo} </p>
@@ -46,7 +46,7 @@ const Tabela = () => {
         )
     }
 
-    const getElement = (grupo: number, periodo: number): React.ReactNode => {
+    const getElement = (grupo: number, periodo: number, key: number): React.ReactNode => {
 
         // Se for peroído = 6 e família = 3, então é o Lantanídeos
         if (periodo === 6 && grupo === 3) {
@@ -73,9 +73,9 @@ const Tabela = () => {
         const elemento = elementos.find((elemento) => elemento.Grupo === grupo.toString() && elemento.Periodo === periodo);
 
         return elemento ? (
-            ElementoTableData(elemento)
+            ElementoTableData(elemento, key)
         ) : (
-            <td className="none"></td>
+            <td className="none" key={key}></td>
         );
 
     }
@@ -96,12 +96,12 @@ const Tabela = () => {
                 </thead>
                 <tbody>
                     {
-                        Array.from(Array(altura).keys()).map((periodo) => {
+                        Array.from(Array(altura).keys()).map((periodo, index) => {
                             return (
-                                <tr>
+                                <tr key={index}>
                                     {
-                                        Array.from(Array(largura).keys()).map((grupo) => {
-                                            return getElement(grupo + 1, periodo + 1);
+                                        Array.from(Array(largura).keys()).map((grupo, index) => {
+                                            return getElement(grupo + 1, periodo + 1, index);
                                         })
                                     }
                                 </tr>
