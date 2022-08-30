@@ -9,8 +9,38 @@ export default () => {
             <Menu />
             <a id="inicio" />
             <TabelaPeriódica />
+            <a id="info" />
             <TabelaInfo />
             <a id="fim" />
+            <div id="footer">
+                <p>Todos os direitos reservados © Cristhiane da Cruz - 2022</p>
+                <a href="https://www.linkedin.com/in/barroscruzc/" target="blank">
+                    <i className="fa-brands fa-linkedin" />
+                </a>
+                <a href="mailto:barroscruzc@gmail.com" target="blank">
+                    <i className="fa-solid fa-envelope" /></a>
+                <a href="https://github.com/barroscruzc" target="blank">
+                    <i className="fa-brands fa-github" />
+                </a>
+                <p style={{
+                    fontSize: "small",
+                    fontWeight: "50",
+                    textAlign: "right",
+                    marginRight: "20px"
+                }}>
+                    Fonte e Imagens:
+                    <a href="https://pt.wikipedia.org/wiki/Tabela_peri%C3%B3dica"
+                        target="_blank"
+                        style={{
+                            color: "white"
+                        }}> Wikipedia</a>
+                    |
+                    <a href="https://www.pexels.com/es-es/foto/cielo-azul-y-morado-con-estrellas-3607542/"
+                        target="_blank"
+                        style={{
+                            color: "white"
+                        }}>Frank Cone</a></p>
+            </div>
         </>
     );
 }
