@@ -29,17 +29,16 @@ const TabelaInfo = () => {
                             <td>{elemento.Nome}</td>
                             <td>
                                 {elemento.Numero}
-                                {
-                                    <span>
-                                        <img
-                                            src={`images/elements/${elemento.Numero}-wiki.jpg`}
-                                            alt={elemento.Nome}
-                                            onError={(e) => {
-                                                (e.target as HTMLImageElement).className = `none`;
-                                            }}
-                                        />;
-                                    </span>
-                                }
+                                <span>
+                                    <img
+                                        src={`images/elements/${elemento.Numero}-wiki.jpg`}
+                                        alt={elemento.Nome}
+                                        key={elemento.Numero + "imagem"}
+                                        onError={(e) => {
+                                            (e.target as HTMLImageElement).style.display = 'none';
+                                        }}
+                                    />;
+                                </span>
                             </td>
                             <td>{elemento.Simbolo}</td>
                             <td>{elemento.MassaAtomica}</td>
