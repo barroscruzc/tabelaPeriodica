@@ -77,7 +77,7 @@ body {
 /* Efeito de foco - Hover */
 tb_periodica td:hover:not(.none) {
     cursor: pointer;
-    color: rgb(0, 0, 0);
+    color: rgba(0, 0, 0, 0);
     transition: .5s;
 }
 
@@ -100,6 +100,8 @@ table caption {
 .simbolo_elemento {
     font-weight: 900px;
     font-size: 1.5em;
+    text-align: center;
+    margin: .7em 0em;
 }
 
 .nome_elemento {
@@ -150,7 +152,8 @@ table caption {
         border-radius: 2px;
         transition: .5s ease;
     }
-    input[type="checkbox"]:checked + span {
+
+    input[type="checkbox"]:checked+span {
         border: 1px solid currentColor;
         background: currentColor;
         transition: .5s ease;
@@ -222,10 +225,6 @@ table {
         top: 0;
     }
 
-    .footer {
-        bottom: 0;
-    }
-
     border-collapse: collapse;
     padding: 15px 10px;
     width: 80vw;
@@ -236,6 +235,7 @@ table {
             transform: scaleY(0);
             height: 0;
         }
+
         to {
             opacity: 1;
             transform: scaleY(1);
@@ -247,6 +247,7 @@ table {
             opacity: 1;
             transform: scaleY(1);
         }
+
         to {
             opacity: 0;
             transform: scaleY(0);
@@ -364,24 +365,29 @@ tr {
 
 #footer {
     text-align: center;
-    margin: 50px 0 50px 0;
+    margin: 50px 0 90px 0;
     padding: 0;
     background-color: rgba(0, 0, 0, 0.464);
     color: white !important;
-    height: 180px;
+    height: fit-content;
     width: 100%;
     font-size: large;
     font-weight: 400;
-    padding-top: 30px;
+    padding: 20px 0 20px 0;
+
+    /* Ícones */
+    i {
+        color: white;
+        font-size: 1.5em;
+        padding: 5px;
+    }
+
+    .credito{
+        margin-top: 30px;
+    }
+
 }
 
-/* Ícones */
-
-i {
-    color: white;
-    font-size: 1.5em;
-    padding: 5px;
-}
 
 /* Menu e Botões */
 
@@ -394,30 +400,32 @@ i {
     z-index: 2;
     width: 100vw;
     top: 85vh;
+
+    .btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 5px;
+        width: 60px;
+        height: 60px;
+        background-color: rgba(0, 0, 0, 0.733);
+        text-decoration: none;
+        border-radius: 30px;
+        color: white;
+        border: 1px solid rgb(0, 0, 0);
+    }
+
+    .btn:hover {
+        margin-left: 8px;
+        font-weight: bold;
+        background-color: var(--lantanideos);
+        border-color: white;
+        border-radius: 60px;
+        transition: .5s;
+    }
 }
 
-.btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 5px;
-    width: 60px;
-    height: 60px;
-    background-color: rgba(0, 0, 0, 0.733);
-    text-decoration: none;
-    border-radius: 30px;
-    color: white;
-    border: 1px solid rgb(0, 0, 0);
-}
 
-.btn:hover {
-    margin-left: 8px;
-    font-weight: bold;
-    background-color: var(--lantanideos);
-    border-color: white;
-    border-radius: 60px;
-    transition: .5s;
-}
 
 /* Barra de rolagem */
 
