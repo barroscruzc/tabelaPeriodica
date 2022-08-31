@@ -8,7 +8,7 @@ Uma página interativa que contém a tabela periódica completa e uma tabela adi
 - No diretório do repositório execute `npm i` para baixar as dependências
 - Execute o servidor de desenvolvimento com `npm run start`
 
-Voce pode visitar um deploy da aplicação <a href="https://barroscruzc.github.io/tabelaPeriodica/"> aqui </a>.
+Voce pode visitar um deploy da aplicação <a href="https://tabela-periodica-interativa.vercel.app/"> aqui </a>.
 
 ## Sobre o projeto
 
