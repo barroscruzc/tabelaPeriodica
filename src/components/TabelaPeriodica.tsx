@@ -1,26 +1,95 @@
 import * as React from "react";
+import { AppContext } from "../App";
 import Elementos, { Elemento } from "../data";
 
 const Legenda = () => {
+    const selectedGroups = React.useContext(AppContext).selectedGroups;
+    const setSelectedGroups = React.useContext(AppContext).setSelectedGroups;
+    const toggle = (className: string) => {
+        if (selectedGroups.includes(className)) {
+            setSelectedGroups(selectedGroups.filter((c) => c !== className));
+        } else {
+            setSelectedGroups([...selectedGroups, className]);
+        }
+    }
     return (
-        <div id="legenda" className="blur">
+        <div id="legenda" className="blur legenda">
             <p>Legenda:</p>
             <ul>
-                <li className="nao_metais">Não Metais</li>
-                <li className="halogenios">Halogênios</li>
-                <li className="gases_nobres">Gases Nobres</li>
-                <li className="metais_alcalinos">Metais Alcalinos</li>
+                <li className="nao_metais">
+                    <label>
+                        <input type="checkbox" defaultChecked onChange={() => toggle("nao_metais")} />
+                        <span />
+                        Não Metais
+                    </label>
+                </li>
+                <li className="halogenios">
+                    <label>
+                        <input type="checkbox" defaultChecked onChange={() => toggle("halogenios")} />
+                        <span />
+                        Halogênios
+                    </label>
+                </li>
+                <li className="gases_nobres">
+                    <label>
+                        <input type="checkbox" defaultChecked onChange={() => toggle("gases_nobres")} />
+                        <span />
+                        Gases Nobres
+                    </label>
+                </li>
+                <li className="metais_alcalinos">
+                    <label>
+                        <input type="checkbox" defaultChecked onChange={() => toggle("metais_alcalinos")} />
+                        <span />
+                        Metais Alcalinos
+                    </label>
+                </li>
             </ul>
             <ul>
-                <li className="metais_alcalinoterrosos">Metais Alcalinoterrosos</li>
-                <li className="semimetais">Semimetais</li>
-                <li className="metais_de_transicao">Metais de Transição</li>
-
+                <li className="metais_alcalinoterrosos">
+                    <label>
+                        <input type="checkbox" defaultChecked onChange={() => toggle("metais_alcalinoterrosos")} />
+                        <span />
+                        Metais Alcalinoterrosos
+                    </label>
+                </li>
+                <li className="semimetais">
+                    <label>
+                        <input type="checkbox" defaultChecked onChange={() => toggle("semimetais")} />
+                        <span />
+                        Semimetais
+                    </label>
+                </li>
+                <li className="metais_de_transicao">
+                    <label>
+                        <input type="checkbox" defaultChecked onChange={() => toggle("metais_de_transicao")} />
+                        <span />
+                        Metais de Transição
+                    </label>
+                </li>
             </ul>
             <ul>
-                <li className="metais_representativos">Metais Representativos</li>
-                <li className="lantanideos">Lantanídeos</li>
-                <li className="actinideos">Actinídeos</li>
+                <li className="metais_representativos">
+                    <label>
+                        <input type="checkbox" defaultChecked onChange={() => toggle("metais_representativos")} />
+                        <span />
+                        Metais Representativos
+                    </label>
+                </li>
+                <li className="lantanideos">
+                    <label>
+                        <input type="checkbox" defaultChecked onChange={() => toggle("lantanideos")} />
+                        <span />
+                        Lantanídeos
+                    </label>
+                </li>
+                <li className="actinideos">
+                    <label>
+                        <input type="checkbox" defaultChecked onChange={() => toggle("actinideos")} />
+                        <span />
+                        Actinídeos
+                    </label>
+                </li>
             </ul>
         </div>
     );
@@ -31,11 +100,11 @@ const Tabela = () => {
     const largura = 18;
     const altura = 7;
 
-    const ElementoTableData = (elemento: Elemento): React.ReactNode => {
+    const ElementoTableData = (elemento: Elemento, key: number): React.ReactNode => {
         return (
             <td
                 className={[elemento.Classe, "blur"].join(" ")}
-            >
+                key={key + " " + elemento.Numero}>
                 <a className={elemento.Classe} href={`#${elemento.Numero}`}>
                     <p className="numero_atomico"> {elemento.Numero} </p>
                     <p className="simbolo_elemento"> {elemento.Simbolo} </p>
@@ -46,7 +115,7 @@ const Tabela = () => {
         )
     }
 
-    const getElement = (grupo: number, periodo: number): React.ReactNode => {
+    const getElement = (grupo: number, periodo: number, key: number): React.ReactNode => {
 
         // Se for peroído = 6 e família = 3, então é o Lantanídeos
         if (periodo === 6 && grupo === 3) {
@@ -73,9 +142,9 @@ const Tabela = () => {
         const elemento = elementos.find((elemento) => elemento.Grupo === grupo.toString() && elemento.Periodo === periodo);
 
         return elemento ? (
-            ElementoTableData(elemento)
+            ElementoTableData(elemento, key)
         ) : (
-            <td className="none"></td>
+            <td className="none" key={key}></td>
         );
 
     }
@@ -96,12 +165,12 @@ const Tabela = () => {
                 </thead>
                 <tbody>
                     {
-                        Array.from(Array(altura).keys()).map((periodo) => {
+                        Array.from(Array(altura).keys()).map((periodo, index) => {
                             return (
-                                <tr>
+                                <tr key={index}>
                                     {
-                                        Array.from(Array(largura).keys()).map((grupo) => {
-                                            return getElement(grupo + 1, periodo + 1);
+                                        Array.from(Array(largura).keys()).map((grupo, index) => {
+                                            return getElement(grupo + 1, periodo + 1, index);
                                         })
                                     }
                                 </tr>

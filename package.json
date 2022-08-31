@@ -14,7 +14,9 @@
   "license": "MIT",
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "sass": "^1.54.7",
+    "scss": "^0.2.4"
   },
   "devDependencies": {
     "@types/node": "^18.7.13",

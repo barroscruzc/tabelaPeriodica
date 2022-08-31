@@ -8,7 +8,7 @@ a {
 body {
     color: white;
     font-family: 'Lato', sans-serif;
-    background-image: url(images/pexels-frank-cone-3607542.jpg);
+    background-image: url(/images/background.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -77,7 +77,7 @@ body {
 /* Efeito de foco - Hover */
 tb_periodica td:hover:not(.none) {
     cursor: pointer;
-    color: rgb(0, 0, 0);
+    color: rgba(0, 0, 0, 0);
     transition: .5s;
 }
 
@@ -100,6 +100,8 @@ table caption {
 .simbolo_elemento {
     font-weight: 900px;
     font-size: 1.5em;
+    text-align: center;
+    margin: .7em 0em;
 }
 
 .nome_elemento {
@@ -112,21 +114,50 @@ table caption {
     font-size: 0.7em;
 }
 
-#legenda p {
-    font-weight: 400;
-    font-size: 2em;
-    line-height: 100px;
-}
-
-#legenda ul li{
- font-size: 1.02em;
- font-weight: 900;
-}
-
 #legenda {
+    p {
+        font-weight: 400;
+        font-size: 2em;
+        line-height: 100px;
+    }
+
+    ul {
+        li {
+            font-size: 1.02em;
+            font-weight: 900;
+            list-style: none;
+        }
+    }
+
     border-radius: 30px;
     padding: 40px;
     text-align: left;
+
+    input[type="checkbox"] {
+        visibility: hidden;
+        display: block;
+        height: 0;
+        width: 0;
+        position: absolute;
+        overflow: hidden;
+    }
+
+    input[type="checkbox"]+span {
+        height: 10px;
+        width: 10px;
+        border: 1px solid white;
+        display: inline-block;
+        margin: 0 10px 0 0;
+        cursor: pointer;
+        border-radius: 2px;
+        transition: .5s ease;
+    }
+
+    input[type="checkbox"]:checked+span {
+        border: 1px solid currentColor;
+        background: currentColor;
+        transition: .5s ease;
+    }
 }
 
 h2 {
@@ -141,15 +172,17 @@ table {
     border-collapse: separate;
     border-spacing: 3px;
     line-height: 2px;
+
+    td {
+        height: 50px;
+        min-width: 60px;
+        text-align: center;
+        border: 1px solid;
+        padding: 0;
+    }
 }
 
-td {
-    height: 50px;
-    min-width: 60px;
-    text-align: center;
-    border: 1px solid;
-    padding: 0;
-}
+
 
 .none {
     padding: 0;
@@ -163,7 +196,7 @@ td {
 }
 
 /* Legenda da tabela */
-#legenda {
+.legenda {
     width: 70vw;
     font-size: 1em;
     display: flex;
@@ -171,56 +204,72 @@ td {
     justify-content: space-between;
     flex-wrap: wrap;
     margin: 30px auto 100px auto;
+
+    ul li {
+        list-style: none;
+        border: none;
+        line-height: 30px;
+    }
 }
 
-#legenda ul li {
-    list-style-type: none;
-    border: none;
-    line-height: 30px;
-}
-
-/* Box das legendas */
-#legenda li:before {
-    content: ' ';
-    display: inline-block;
-    width: 1em;
-    height: 1em;
-    border: .125em solid;
-    border-radius: .125rem;
-    margin-right: .5em;
-    position: relative;
-    top: .25em;
-}
 
 /* Tabela de informações sobre os elementos */
 
-#tb_info .header,
+#tb_info {
+    .header {
+        background-color: #000000e2;
+        color: rgb(255, 255, 255);
+        height: 60px;
+        font-size: small;
+        position: sticky;
+        top: 0;
+    }
+
+    border-collapse: collapse;
+    padding: 15px 10px;
+    width: 80vw;
+
+    @keyframes tdAppear {
+        from {
+            opacity: 0;
+            transform: scaleY(0);
+            height: 0;
+        }
+
+        to {
+            opacity: 1;
+            transform: scaleY(1);
+        }
+    }
+
+    @keyframes tdDisappear {
+        from {
+            opacity: 1;
+            transform: scaleY(1);
+        }
+
+        to {
+            opacity: 0;
+            transform: scaleY(0);
+            height: 0;
+        }
+    }
+
+    td {
+        border-left: 0;
+        border-right: 0;
+        border-top: 0;
+        animation: tdAppear 1s;
+        transition: .5s;
+    }
+}
+
 .footer {
     background-color: #000000e2;
     color: rgb(255, 255, 255);
     height: 60px;
     font-size: small;
     position: sticky;
-}
-
-#tb_info .footer {
-    bottom: 0;
-}
-
-#tb_info .header {
-    top: 0;
-}
-
-#tb_info {
-    border-collapse: collapse;
-    padding: 15px 10px;
-    width: 80vw;
-}
-
-#tb_info td {
-    border-left: 0;
-    border-right: 0;
-    border-top: 0;
 }
 
 /* Efeito de foco - Hover */
@@ -232,26 +281,35 @@ td {
     line-height: 60px;
 }
 
-tr span {
-    display: none;
-    /* Aqui você define que todo SPAN que estiver dentro de um A estará invisível */
+tr {
+    span {
+        display: none;
+
+        /* Aqui você define que todo SPAN que estiver dentro de um A estará invisível */
+        img {
+            width: 120px;
+            border-radius: 5px;
+            border: 1px white solid;
+        }
+    }
+
+    &:hover {
+        span {
+            display: inline;
+            /* Tranforma o SPAN em um elemento do tipo bloco */
+            position: absolute;
+            /* Para fazer o posicionamento livremente, sem quebrar o layout em volta */
+            right: -125px;
+            top: auto;
+            z-index: 2;
+        }
+    }
 }
 
-tr:hover span {
-    display: inline;
-    /* Tranforma o SPAN em um elemento do tipo bloco */
-    position: absolute;
-    /* Para fazer o posicionamento livremente, sem quebrar o layout em volta */
-    right: -125px;
-    top: auto;
-    z-index: 2;
-}
 
-tr span img {
-    width: 120px;
-    border-radius: 5px;
-    border: 1px white solid;
-}
+
+
+
 
 .actinideos:hover:not(#legenda ul li) {
     background-color: var(--actinideos) !important;
@@ -307,24 +365,29 @@ tr span img {
 
 #footer {
     text-align: center;
-    margin: 50px 0 50px 0;
+    margin: 50px 0 90px 0;
     padding: 0;
     background-color: rgba(0, 0, 0, 0.464);
     color: white !important;
-    height: 180px;
+    height: fit-content;
     width: 100%;
     font-size: large;
     font-weight: 400;
-    padding-top: 30px;
+    padding: 20px 0 20px 0;
+
+    /* Ícones */
+    i {
+        color: white;
+        font-size: 1.5em;
+        padding: 5px;
+    }
+
+    .credito{
+        margin-top: 30px;
+    }
+
 }
 
-/* Ícones */
-
-i {
-    color: white;
-    font-size: 1.5em;
-    padding: 5px;
-}
 
 /* Menu e Botões */
 
@@ -337,30 +400,32 @@ i {
     z-index: 2;
     width: 100vw;
     top: 85vh;
+
+    .btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 5px;
+        width: 60px;
+        height: 60px;
+        background-color: rgba(0, 0, 0, 0.733);
+        text-decoration: none;
+        border-radius: 30px;
+        color: white;
+        border: 1px solid rgb(0, 0, 0);
+    }
+
+    .btn:hover {
+        margin-left: 8px;
+        font-weight: bold;
+        background-color: var(--lantanideos);
+        border-color: white;
+        border-radius: 60px;
+        transition: .5s;
+    }
 }
 
-.btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 5px;
-    width: 60px;
-    height: 60px;
-    background-color: rgba(0, 0, 0, 0.733);
-    text-decoration: none;
-    border-radius: 30px;
-    color: white;
-    border: 1px solid rgb(0, 0, 0);
-}
 
-.btn:hover {
-    margin-left: 8px;
-    font-weight: bold;
-    background-color: var(--lantanideos);
-    border-color: white;
-    border-radius: 60px;
-    transition: .5s;
-}
 
 /* Barra de rolagem */
 

@@ -2,9 +2,13 @@
 
 Uma página interativa que contém a tabela periódica completa e uma tabela adicional com informações extras sobre todos os elementos químicos.
 
-## Como utilizar
+## Como rodar o proejto
 
-Basta clicar <a href="https://barroscruzc.github.io/tabelaPeriodica/"> aqui </a>.
+- Clone o repositório
+- No diretório do repositório execute `npm i` para baixar as dependências
+- Execute o servidor de desenvolvimento com `npm run start`
+
+Voce pode visitar um deploy da aplicação <a href="https://barroscruzc.github.io/tabelaPeriodica/"> aqui </a>.
 
 ### Sobre o projeto
 
@@ -25,10 +29,14 @@ Nesse projeto foram usados apenas:
 
 * HTML5
 * CSS
+* TypeScript
+* ReactJS
 
 ## Author
 
 * **Cristhiane da Cruz** - [GitHub](https://github.com/barroscruzc) | [LinkedIn](https://www.linkedin.com/in/barroscruzc)
+
+* **Nicolas Nery** - [GitHub](https://github.com/tomast1337) | [LinkedIn](https://www.linkedin.com/in/nicolas-vycas/)
 
 ## Sobre o código
 
