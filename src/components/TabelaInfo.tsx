@@ -1,7 +1,9 @@
 import * as React from "react";
+import { AppContext } from "../App";
 import Elementos, { Elemento } from "../data";
 const TabelaInfo = () => {
     const elementos: Elemento[] = Elementos;
+    const selectedGroups = React.useContext(AppContext).selectedGroups;
 
     return (
         <>
@@ -20,39 +22,44 @@ const TabelaInfo = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {elementos.map((elemento) => (
-                        <tr
-                            id={elemento.Numero.toString()}
-                            key={elemento.Numero}
-                            className={elemento.Classe}
-                        >
-                            <td>{elemento.Nome}</td>
-                            <td>
-                                {elemento.Numero}
-                                <span>
-                                    <img
-                                        src={`/images/elements/${elemento.Numero}-wiki.jpg`}
-                                        alt={elemento.Nome}
-                                        key={elemento.Numero + "imagem"}
-                                        onError={(e) => {
-                                            (e.target as HTMLImageElement).style.display = 'none';
-                                        }}
-                                    />;
-                                </span>
-                            </td>
-                            <td>{elemento.Simbolo}</td>
-                            <td>{elemento.MassaAtomica}</td>
-                            <td>{elemento.Grupo}</td>
-                            <td>{elemento.Periodo}</td>
-                            <td>{
-                                isNaN(elemento.PontoFusao) ? "-" : `${elemento.PontoFusao}`
-                            }</td>
-                            <td>{
-                                isNaN(elemento.PontoEbulicao) ? "-" : `${elemento.PontoEbulicao}`
-                            }</td>
-                            <td>{elemento.Fontes}</td>
-                        </tr>
-                    ))}
+                    {elementos.map((elemento, index) => {
+                        if (selectedGroups.includes(elemento.Classe)) {
+                            return (
+                                <tr
+                                    id={elemento.Numero.toString()}
+                                    key={elemento.Numero}
+                                    className={elemento.Classe}>
+                                    <td>{elemento.Nome}</td>
+                                    <td>
+                                        {elemento.Numero}
+                                        <span>
+                                            <img
+                                                src={`/images/elements/${elemento.Numero}-wiki.jpg`}
+                                                alt={elemento.Nome}
+                                                key={elemento.Numero + "imagem"}
+                                                onError={(e) => {
+                                                    (e.target as HTMLImageElement).style.display = 'none';
+                                                }}
+                                            />;
+                                        </span>
+                                    </td>
+                                    <td>{elemento.Simbolo}</td>
+                                    <td>{elemento.MassaAtomica}</td>
+                                    <td>{elemento.Grupo}</td>
+                                    <td>{elemento.Periodo}</td>
+                                    <td>{
+                                        isNaN(elemento.PontoFusao) ? "-" : `${elemento.PontoFusao}`
+                                    }</td>
+                                    <td>{
+                                        isNaN(elemento.PontoEbulicao) ? "-" : `${elemento.PontoEbulicao}`
+                                    }</td>
+                                    <td>{elemento.Fontes}</td>
+                                </tr>
+                            );
+                        } else {
+                            return (<></>);
+                        }
+                    })}
                 </tbody>
             </table>
         </>
