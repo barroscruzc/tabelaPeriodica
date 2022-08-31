@@ -10,7 +10,7 @@ Uma página interativa que contém a tabela periódica completa e uma tabela adi
 
 Voce pode visitar um deploy da aplicação <a href="https://barroscruzc.github.io/tabelaPeriodica/"> aqui </a>.
 
-### Sobre o projeto
+## Sobre o projeto
 
 Três requisitos foram propostos para esse desafio de código:
 - fazer uma página com a tabela periódica;
@@ -32,7 +32,7 @@ Nesse projeto foram usados apenas:
 * TypeScript
 * ReactJS
 
-## Author
+## Authors
 
 * **Cristhiane da Cruz** - [GitHub](https://github.com/barroscruzc) | [LinkedIn](https://www.linkedin.com/in/barroscruzc)
 
