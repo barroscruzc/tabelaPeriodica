@@ -31,7 +31,7 @@ const TabelaInfo = () => {
                                 {elemento.Numero}
                                 <span>
                                     <img
-                                        src={`images/elements/${elemento.Numero}-wiki.jpg`}
+                                        src={`/images/elements/${elemento.Numero}-wiki.jpg`}
                                         alt={elemento.Nome}
                                         key={elemento.Numero + "imagem"}
                                         onError={(e) => {
