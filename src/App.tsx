@@ -20,7 +20,9 @@ export default () => {
                 <TabelaInfo />
                 <a id="fim" />
                 <div id="footer">
-                    <p>Todos os direitos reservados © Cristhiane da Cruz - 2022</p>
+                    {/* Cristhiane da Cruz */}
+                    <p>Todos os direitos reservados © 2022</p>
+                    <p className=".credito" >Cristhiane da Cruz</p>
                     <a href="https://www.linkedin.com/in/barroscruzc/" target="blank">
                         <i className="fa-brands fa-linkedin" />
                     </a>
@@ -29,6 +31,19 @@ export default () => {
                     <a href="https://github.com/barroscruzc" target="blank">
                         <i className="fa-brands fa-github" />
                     </a>
+
+                    {/* Nicolas Nery*/}
+                    <p className=".credito">Nicolas da Nery</p>
+                    <a href="https://www.linkedin.com/in/nicolas-vycas/" target="blank">
+                        <i className="fa-brands fa-linkedin" />
+                    </a>
+                    <a href="mailto:vycasnicolas@gmail.com" target="blank">
+                        <i className="fa-solid fa-envelope" /></a>
+                    <a href="https://github.com/tomast1337" target="blank">
+                        <i className="fa-brands fa-github" />
+                    </a>
+
+
                     <p style={{
                         fontSize: "small",
                         fontWeight: "50",
